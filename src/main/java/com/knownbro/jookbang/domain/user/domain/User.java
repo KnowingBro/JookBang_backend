@@ -1,5 +1,6 @@
 package com.knownbro.jookbang.domain.user.domain;
 
+import com.knownbro.jookbang.domain.user.domain.authority.Authority;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,9 +22,13 @@ public class User {
 
     private String name;
 
+    @Enumerated(EnumType.STRING)
+    private Authority authority;
+
     @Builder
-    public User(String email, String name) {
+    public User(String email, String name, Authority authority) {
         this.email = email;
         this.name = name;
+        this.authority = authority;
     }
 }
