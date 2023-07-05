@@ -5,6 +5,7 @@ import lombok.Getter;
 @Getter
 public class ImageRequest {
 
+    private String name;
     private String originUrl;
     private String newUrl1;
     private String newUrl2;

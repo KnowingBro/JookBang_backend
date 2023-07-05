@@ -22,6 +22,7 @@ public class SaveImageService {
 
         imageRepository.save(
                 Image.builder()
+                        .name(request.getName())
                         .originImgUrl(request.getOriginUrl())
                         .newImgUrl1(request.getNewUrl1())
                         .newImgUrl2(request.getNewUrl2())
