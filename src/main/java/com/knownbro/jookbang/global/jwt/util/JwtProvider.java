@@ -2,6 +2,8 @@ package com.knownbro.jookbang.global.jwt.util;
 
 import com.knownbro.jookbang.global.jwt.config.JwtProperties;
 import com.knownbro.jookbang.global.jwt.dto.TokenResponse;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
@@ -50,5 +52,14 @@ public class JwtProvider {
             return bearer.replace(jwtProperties.getPrefix(), "");
         }
         return null;
+    }
+
+    public Jws<Claims> getJws(String token) {
+        try {
+            return Jwts.parser().setSigningKey(jwtProperties.getSecret())
+                    .parseClaimsJws(token);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("토큰이 만료된 거 같기도?");
+        }
     }
 }

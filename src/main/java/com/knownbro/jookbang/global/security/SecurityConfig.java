@@ -1,5 +1,7 @@
 package com.knownbro.jookbang.global.security;
 
+import com.knownbro.jookbang.global.jwt.auth.JwtAuth;
+import com.knownbro.jookbang.global.jwt.util.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +14,11 @@ import org.springframework.web.cors.CorsUtils;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
+
+    private final JwtProvider jwtProvider;
+    private final JwtAuth jwtAuth;
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
@@ -33,6 +39,8 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .antMatchers("/user/**").permitAll()
                 .anyRequest().permitAll()
+                .and()
+                .apply(new FilterConfig(jwtProvider, jwtAuth))
         ;
 
         return http.build();
