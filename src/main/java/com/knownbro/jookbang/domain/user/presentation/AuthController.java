@@ -1,4 +1,4 @@
-package com.knownbro.jookbang.domain.user.presetation;
+package com.knownbro.jookbang.domain.user.presentation;
 
 import com.knownbro.jookbang.domain.user.service.OAuth2GoogleService;
 import com.knownbro.jookbang.global.jwt.dto.TokenResponse;
