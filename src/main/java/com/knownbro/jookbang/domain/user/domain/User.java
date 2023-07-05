@@ -1,6 +1,7 @@
 package com.knownbro.jookbang.domain.user.domain;
 
 import com.knownbro.jookbang.domain.user.domain.authority.Authority;
+import com.knownbro.jookbang.global.oauth.OAuthAttributes;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -30,5 +31,11 @@ public class User {
         this.email = email;
         this.name = name;
         this.authority = authority;
+    }
+
+    public User update(OAuthAttributes oAuthAttributes) {
+        this.email = oAuthAttributes.getEmail();
+        this.name = oAuthAttributes.getName();
+        return this;
     }
 }
