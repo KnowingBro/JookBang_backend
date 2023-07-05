@@ -1,4 +1,4 @@
-package com.knownbro.jookbang.domain.user.presetation.dto;
+package com.knownbro.jookbang.domain.user.presentation.dto;
 
 import lombok.Getter;
 

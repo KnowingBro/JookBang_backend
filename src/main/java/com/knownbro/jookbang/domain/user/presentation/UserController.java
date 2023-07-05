@@ -1,6 +1,6 @@
-package com.knownbro.jookbang.domain.user.presetation;
+package com.knownbro.jookbang.domain.user.presentation;
 
-import com.knownbro.jookbang.domain.user.presetation.dto.UserResponse;
+import com.knownbro.jookbang.domain.user.presentation.dto.UserResponse;
 import com.knownbro.jookbang.domain.user.service.FindUserInfoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
